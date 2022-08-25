@@ -1,0 +1,45 @@
+
+import SwiftUI
+
+struct SuccesView: View {
+    
+let jobtext = """
+Good job completing all four exercises!
+Remember tomerrow's another day.
+So eat well and get some rest.
+"""
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                Image(systemName: "hand.raised.fill")
+                    .font(.system(size: 75))
+                    .foregroundColor(.purple)
+                    .frame(width: 75, height: 75, alignment: .center)
+                Text("High five!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Text(jobtext)
+                    //.font(.system(size: 15, weight: .light, design: .serif))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    
+            }
+            .padding(10)
+            
+            VStack {
+                Spacer()
+                Button("Continue") {
+                    
+                }
+                .padding()
+            }
+        }
+    }
+}
+
+struct SuccesView_Previews: PreviewProvider {
+    static var previews: some View {
+        SuccesView()
+    }
+}

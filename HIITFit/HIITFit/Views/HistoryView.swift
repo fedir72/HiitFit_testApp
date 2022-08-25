@@ -1,7 +1,10 @@
 
+
+
 import SwiftUI
 
 struct HistoryView: View {
+
     
     let today = Date()
     let yesterday = Date().addingTimeInterval(-86400)
