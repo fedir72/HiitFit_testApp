@@ -2,21 +2,25 @@
 ///
 
 import SwiftUI
+// terminal command for localisation
+//genstrings -o en.lproj Views/*.swift Model/*.swift
+
 
 struct ContentView: View {
 
     
     
     var body: some View {
-        TabView{
+        TabView {
         WelcomeView()
             ForEach(0 ..< Exercise.exercises.count) { index in
              ExerciseView(index: index)
            }
         }
-       // .tabViewStyle(.page(indexDisplayMode: .never))
-        .tabViewStyle(.page(indexDisplayMode: .always))
-        .indexViewStyle(.page(backgroundDisplayMode: .always))
+        .ignoresSafeArea()
+        .tabViewStyle(.page(indexDisplayMode: .never))
+       // .tabViewStyle(.page(indexDisplayMode: .always))
+        //.indexViewStyle(.page(backgroundDisplayMode: .always))
         
     }
 }

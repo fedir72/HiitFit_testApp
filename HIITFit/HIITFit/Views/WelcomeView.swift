@@ -3,20 +3,25 @@
 
 import SwiftUI
 
+
+
+
+
+
 struct WelcomeView: View {
     var body: some View {
         ZStack {
             VStack {
-                HeaderView(titleName: "Welcome")
+                HeaderView(titleName: NSLocalizedString("Welcome", comment: "greeting"))
                 Spacer()
-                Button("History") { }
+                Button(NSLocalizedString("History", comment: "view user activity")) { }
                  .padding(.bottom)
                 }
             
             VStack {
                 HStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
-                  Text("Get fit")
+                  Text(NSLocalizedString("Get Fit", comment: "invitation to exercise"))
                     .font(.largeTitle)
                   Text("with high intensity interval training")
                     .font(.headline)
@@ -26,7 +31,8 @@ struct WelcomeView: View {
                       .clipShape(Circle())
                 }
                 Button(action: { }) {
-                  Label("Get started", systemImage: "arrow.right.circle")
+                  Label(NSLocalizedString("Get Started", comment: "invitation"),
+                        systemImage: "arrow.right.circle")
                 }
                 .font(.title2)
                 .padding()
