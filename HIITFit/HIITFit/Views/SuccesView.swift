@@ -20,17 +20,15 @@ So eat well and get some rest.
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Text(jobtext)
-                    //.font(.system(size: 15, weight: .light, design: .serif))
+                    .font(.system(size: 15, weight: .light, design: .serif))
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.center)
-                    
             }
             .padding(10)
             
             VStack {
                 Spacer()
                 Button("Continue") {
-                    
                 }
                 .padding()
             }

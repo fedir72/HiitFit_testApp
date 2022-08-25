@@ -33,11 +33,38 @@
 import SwiftUI
 import AVKit
 
+struct Exercise {
+  let exerciseName: String
+  let videoName: String
+  enum ExerciseEnum: String {
+    case squat = "Squat"
+    case stepUp = "Step Up"
+    case burpee = "Burpee"
+    case sunSalute = "Sun Salute"
+  }
+}
+
+extension Exercise {
+  static let exercises = [
+    Exercise(
+      exerciseName: ExerciseEnum.squat.rawValue,
+      videoName: "squat"),
+    Exercise(
+      exerciseName: ExerciseEnum.stepUp.rawValue,
+      videoName: "step-up"),
+    Exercise(
+      exerciseName: ExerciseEnum.burpee.rawValue,
+      videoName: "burpee"),
+    Exercise(
+      exerciseName: ExerciseEnum.sunSalute.rawValue,
+      videoName: "sun-salute")
+  ]
+}
+
+
+
 struct ExerciseView: View {
-    
-    let videoNames = ["squat", "step-up", "burpee", "sun-salute"]
-    let exerciseNames = ["Squat", "Step Up", "Burpee", "Sun Salute"]
-    
+
     
     let index: Int
     let interval: TimeInterval = 30
@@ -45,14 +72,14 @@ struct ExerciseView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-              HeaderView(titleName: exerciseNames[index])
+                HeaderView(titleName: Exercise.exercises[index].exerciseName)
                     .padding(.bottom)
                 if let url = Bundle.main.url(
-                    forResource: videoNames[index], withExtension: "mp4") {
+                    forResource: Exercise.exercises[index].videoName, withExtension: "mp4") {
                     VideoPlayer(player: AVPlayer(url: url))
                         .frame( height: geo.size.height*0.4)
                     .padding(.bottom)                } else {
-                    Text("Couldn’t find \(videoNames[index]).mp4")
+                    Text("Couldn’t find \(Exercise.exercises[index].videoName).mp4")
                      .foregroundColor(.red)
                 }
               Text(Date().addingTimeInterval(interval), style: .timer)
