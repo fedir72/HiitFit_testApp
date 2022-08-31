@@ -3,6 +3,9 @@ import SwiftUI
 
 struct SuccesView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var selectedTab: Int
+    
 let jobtext = """
 Good job completing all four exercises!
 Remember tomerrow's another day.
@@ -29,6 +32,9 @@ So eat well and get some rest.
             VStack {
                 Spacer()
                 Button("Continue") {
+                    presentationMode.wrappedValue.dismiss()
+                    selectedTab = 9//переход на welcomeview
+                    
                 }
                 .padding()
             }
@@ -38,6 +44,6 @@ So eat well and get some rest.
 
 struct SuccesView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccesView()
+        SuccesView(selectedTab: .constant(3))
     }
 }
