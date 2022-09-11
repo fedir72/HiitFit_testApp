@@ -39,12 +39,9 @@ struct ExerciseView: View {
     
     //@AppStorage("rating") private var rating = 0
     @EnvironmentObject var history: HistoryStore
-    
     @Binding var selectedTab: Int
-    
     @State private var showHistory = false
     @State private var showSuccess = false
-
     let index: Int
     @State private var timerDone = false
     @State private var showTimer = false
@@ -96,13 +93,14 @@ struct ExerciseView: View {
                 }
                 Spacer()
                 RatingView(exerciseIndex: index)
+                    .padding()
                 Button("History") {
                      showHistory.toggle()
                  }
-                 .padding(.bottom)
                  .sheet(isPresented: $showHistory) {
                        HistoryView(showHistory: $showHistory)
-            }
+                 }
+                .padding(.bottom)
          }
       }
    }

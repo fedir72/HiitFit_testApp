@@ -5,14 +5,13 @@ import SwiftUI
 
 
 struct HeaderView: View {
-    
     @Binding var selectedTab: Int
     let titleText: String
     
     var body: some View {
         VStack {
-            Text(titleText).font(.largeTitle)
-            
+            Text(titleText)
+                .font(.largeTitle)
             HStack {  // 2
                 ForEach(0 ..< Exercise.exercises.count) { index in  // 3
                     let fill = index == selectedTab ? ".fill" : ""
